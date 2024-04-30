@@ -124,7 +124,13 @@ const facereg = async (req, res) => {
             event.save();
             user.event.forEach((u,index)=>{
                 if(u.id==event.id){
-                    u.token="B3: 64";
+                  const randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+
+                    // Generate a random number between 0 and 99
+                    const randomNumber = Math.floor(Math.random() * 100);
+
+                    // Format the token
+                    u.token = `${randomLetter}${randomNumber}`;
                     // user.save();
                 }
             })
